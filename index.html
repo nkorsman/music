@@ -85,11 +85,11 @@ function generateMusic(data, files){
 		
 		Deferred.loop({begin: 0, end: width * height * 4 - 1, step: 4 }, function(i){
 			//load prefs
-			var freqFormula = $('freq').value;
-			var lengthFormula = $('length').value;
-			var envelopeFormula = $('envelope').value;
-			var waveType = document.querySelector('input[name="waveType"]:checked').value;
-			var doFade = $('fade').checked;
+			var freqFormula = $('Math.floor((R+G+B) / 3) + 100').value;
+			var lengthFormula = $('(R+G)/1000').value;
+			var envelopeFormula = $(0);
+			var waveType = $('sin');
+			var doFade = $(true);
 			
 		
 			var audio = new Audio();
@@ -186,9 +186,21 @@ function generateMusic(data, files){
 <h1>Music Generator</h1>
 
 Generates a music from a image file. <br />
+Works on Firefox 4+ only.<br /><br />
 
 Source File: <input type="file" id="filepicker" /><br /><br />
 
+<b>[Options] R: Red, G: Green, B: Blue, A: Alpha (<a href="http://www.htmq.com/css3/rgba.shtml">RGBA Color Code</a>)</b>
+<div id="options">
+	Frequency: <input type="text" value="Math.floor((R+G+B) / 3) + 100" id="freq" /> Hz<br />
+	Sound Length: <input type="text" value="(R+G)/1000" id="length" /> s<br />
+	Envelope: <input type="text" value="0" id="envelope" /><br />
+	Type of Wave: <input type="radio" name="waveType" value="sin" checked="checked">Sin
+				  <input type="radio" name="waveType" value="square">Square 
+				  <input type="radio" name="waveType" value="triangle">Triangle
+				  <input type="radio" name="waveType" value="sawtooth">Sawtooth <br />
+	<input type="checkbox" checked="checked" id="fade"> Fade <br /><br />
+</div>
 
 <button onclick="_loadFile($('filepicker').files);">Play</button>
 
