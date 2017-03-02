@@ -190,17 +190,8 @@ Works on Firefox 4+ only.<br /><br />
 
 Source File: <input type="file" id="filepicker" /><br /><br />
 
-<b>[Options] R: Red, G: Green, B: Blue, A: Alpha (<a href="http://www.htmq.com/css3/rgba.shtml">RGBA Color Code</a>)</b>
-<div id="options">
-	Frequency: <input type="text" value="Math.floor((R+G+B) / 3) + 100" id="freq" /> Hz<br />
-	Sound Length: <input type="text" value="(R+G)/1000" id="length" /> s<br />
-	Envelope: <input type="text" value="0" id="envelope" /><br />
-	Type of Wave: <input type="radio" name="waveType" value="sin" checked="checked">Sin
-				  <input type="radio" name="waveType" value="square">Square 
-				  <input type="radio" name="waveType" value="triangle">Triangle
-				  <input type="radio" name="waveType" value="sawtooth">Sawtooth <br />
-	<input type="checkbox" checked="checked" id="fade"> Fade <br /><br />
-</div>
+
+	
 
 <button onclick="_loadFile($('filepicker').files);">Play</button>
 
